@@ -11,9 +11,18 @@ public class Arkanoid {
     public void run() {
 
     }
-
+        //двигаем все что движется (подставка и шарик)
     public void move() {
-
+        ball.move();
+        stand.move();
+    }
+    //отрисовываем шарик, подставку и все кирпичи
+    void draw(Canvas canvas) {
+        ball.draw(canvas);
+        stand.draw(canvas);
+        for (int i = 0; i < bricks.size(); i++) {
+            bricks.get(i).draw(canvas);
+        }
     }
 
     static Arkanoid game;
