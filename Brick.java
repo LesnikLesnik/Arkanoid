@@ -14,4 +14,8 @@ public class Brick extends BaseObject {
     public void move() {
 
     }
+
+    public Brick(double x, double y) {
+        super(x, y, 3);
+    }
 }
