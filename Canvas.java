@@ -1,8 +1,8 @@
 package com.javarush.task.task24.task2413;
 
 public class Canvas {
-    private int width;
-    private int height;
+    private int width; //ширина
+    private int height; //высота
 
     private char[][] matrix;
 
@@ -20,7 +20,7 @@ public class Canvas {
             matrix[u0][x0] = c;
         }
     }
-
+        //отрисовка матрицы
     void drawMatrix(double x, double y, int[][] matrix, char c) {
         int height = matrix.length;
         int width = matrix[0].length;
@@ -32,11 +32,14 @@ public class Canvas {
             }
         }
     }
-    void clear(){
+
+    //очистка матрицы
+    void clear() {
         this.matrix = new char[height + 2][width + 2];
     }
 
-    void print(){
+    //отрисовка матрицы
+    void print() {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 System.out.print(matrix[i][j]);

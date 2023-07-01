@@ -1,9 +1,11 @@
 package com.javarush.task.task24.task2413;
 
+
+//базовый класс для переопределения методов draw и move
 public abstract class BaseObject {
-    private double x;
-    private  double y;
-    private double radius;
+    protected double x;
+    protected   double y;
+    protected double radius;
 
     public BaseObject(double x, double y, double radius) {
         this.x = x;
@@ -15,6 +17,7 @@ public abstract class BaseObject {
 
     public abstract void move();
 
+    //проверка пересечения объектов (кирпич и шарик)
     boolean intersects (BaseObject o) {
 
         double distance = Math.hypot(this.getX() - o.getX(), this.getY() - o.getY());
