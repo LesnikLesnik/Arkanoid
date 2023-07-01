@@ -58,7 +58,7 @@ public class Ball extends BaseObject {
     }
 
     //определение направления движения шарика
-    //P.S. был в условии задания, написал не сам :(
+    //P.S. код был в условии задания, написал не сам :(
     void setDirection(double direction) {
         this.direction = direction;
         double angle = Math.toRadians(direction);

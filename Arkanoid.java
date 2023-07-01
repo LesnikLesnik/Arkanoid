@@ -11,11 +11,13 @@ public class Arkanoid {
     public void run() {
 
     }
-        //двигаем все что движется (подставка и шарик)
+
+    //двигаем все что движется (подставка и шарик)
     public void move() {
         ball.move();
         stand.move();
     }
+
     //отрисовываем шарик, подставку и все кирпичи
     void draw(Canvas canvas) {
         ball.draw(canvas);
@@ -26,7 +28,30 @@ public class Arkanoid {
     }
 
     static Arkanoid game;
+    private boolean isGameOver;
 
+    //смотрим не столкнулся ли шарик с кирпичом
+    public void checkBricksBump() {
+        for (int i = 0; i < bricks.size(); i++) {
+            if (ball.intersects(bricks.get(i))) { //если шарик попал в кирпич
+                double angle = Math.random() * 360; //отлетает в случайном направлении
+                ball.setDirection(angle);
+                bricks.remove(i);
+            }
+        }
+    }
+
+    //проверяем ударился ли шарик о платформу
+    public void checkStandBump() {
+        if (ball.intersects(stand)) { //если ударился, то улетает в случайном направлении вверх
+            double angle = 90 + 20 * (Math.random() - 0.5); //тоже был готовый код в условии
+            ball.setDirection(angle);
+        }
+    }
+
+    public void checkEndGame() {
+        if (ball.y > height) isGameOver = true;
+    }
 
     private int width;
     private int height;
