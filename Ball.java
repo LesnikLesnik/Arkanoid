@@ -1,8 +1,6 @@
 package com.javarush.task.task24.task2413;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
 
 public class Ball extends BaseObject {
     public Ball(double x, double y, double radius) {
@@ -49,6 +47,7 @@ public class Ball extends BaseObject {
     void start() {
         this.isFrozen = false;
     }
+
     //перемещение шарика если он не заморожен
     @Override
     public void move() {
@@ -56,5 +55,19 @@ public class Ball extends BaseObject {
             x += dx;
             y += dy;
         }
+    }
+
+    //определение направления движения шарика
+    //P.S. был в условии задания, написал не сам :(
+    void setDirection(double direction) {
+        this.direction = direction;
+        double angle = Math.toRadians(direction);
+        dx = Math.cos(angle) * speed;
+        dy = -Math.sin(angle) * speed;
+    }
+    //отскок шарика в случае удара о стену, в условии сказано просто создать метод
+    //а его наполнение хз буду ли писать сам
+    void checkRebound(int minx, int maxx, int miny, int maxy) {
+
     }
 }

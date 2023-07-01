@@ -19,7 +19,6 @@ public abstract class BaseObject {
 
     //проверка пересечения объектов (кирпич и шарик)
     boolean intersects (BaseObject o) {
-
         double distance = Math.hypot(this.getX() - o.getX(), this.getY() - o.getY());
         return distance <= this.radius || distance <= o.radius;
     }
